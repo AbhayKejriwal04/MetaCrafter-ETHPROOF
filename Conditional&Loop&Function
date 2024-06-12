@@ -1,0 +1,74 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.3;
+
+//Conditional Statements 
+contract IfElse{
+    function example (uint _x) external pure returns (uint){
+        if(_x<10){
+            return 1;
+        } else if (_x<20){
+            return 2;
+        }else{
+            return 3;
+        }
+    }
+
+    function ternary(uint _x) external pure returns (uint){
+        /*if(_x<10){
+            return 1;
+        }
+        return 2;*/
+        //above code can be written as 
+        return _x<10?1:2;
+    }
+}
+
+//Loops Statements and Functions
+contract ForAndWhileLoops{
+    function loops() external pure{
+        for(uint i=0;i<10;i++){
+            //some code
+            if(i==3){
+                continue; //skips the current loop point and continue further 
+            }
+            //more code
+            if(i==5){
+                break; //terminates the whole process if the condition meets
+            }
+        }
+
+        uint j=0;
+        while (j<10){
+            //code
+            j++;
+        }
+    }
+
+    function sum(uint _n) external pure returns (uint){
+        uint s;
+        for (uint i=1; i<=_n;i++){
+            s+=i;
+        }
+        return s;
+    }
+}
+
+//there are four types of function wth the help of access specifiers
+//1)public 2)private 
+//3)internal 4)external
+
+//Other 2 types of functions are: 
+//1)view- read only fucntion
+//2)pure- we can't niether read or write in this functions. We usually returns a value in this functions.
+
+//there is also a type of function called payable function- 
+//it ensures that the fucntion can send and recieves the ether
+contract FunctionIntro{
+    function add(uint x,uint y) external pure returns (uint){
+        return x+y;
+    }
+
+    function sub(uint x, uint y) external pure returns (uint){
+        return x-y;
+    }
+}
